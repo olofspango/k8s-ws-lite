@@ -1,0 +1,17 @@
+services:
+  frontend:
+    build: 
+      context: ./simple-frontend
+    networks: 
+      - simple-temp-network
+    ports:
+      - "3000:3000"
+  simple-backend-service:
+    build:
+      context: ./simple-backend
+    networks: 
+      - simple-temp-network
+
+networks:
+  simple-temp-network:
+    driver: bridge
